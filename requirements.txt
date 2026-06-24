@@ -1,5 +1,5 @@
-streamlit
-matplotlib
+streamlit==1.50.0
+matplotlib==3.9.4
 numpy
 pandas
 openpyxl
