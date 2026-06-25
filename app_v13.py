@@ -122,11 +122,9 @@ def draw_lc(peaks_df, rs, sigma):
     for i, row in peaks_df.iterrows():
         c   = centers[i]
         top = float(row["pct"]) / 100
-        # TEMP DEBUG: text rendering disabled to isolate Streamlit Cloud crash
-        # ax.text(c, top + max(y) * 0.18,
-        #         f"{row['peak_label']}\n{row['pct']:.1f}%",
-        #         ha="center", va="bottom", fontsize=8,
-        #         fontweight="bold", color=REF_COL, linespacing=1.4)
+        ax.text(c, top + max(y) * 0.18,
+                f"{row['peak_label']} {row['pct']:.1f}%",
+                ha="center", va="bottom", fontsize=8, color=REF_COL)
     ax.set_xlim(0, len(t) - 1)
     ax.set_ylim(0, max(y) * 1.40)
     ax.axis("off")
