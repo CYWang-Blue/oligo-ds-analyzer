@@ -335,7 +335,7 @@ with tab_proc:
         ax_c.bar(x_pos, clr_vals2, color=bar_colors, alpha=0.85)
         ax_c.axhline(0, color="#333", lw=1.2)
         ax_c.set_xticks(x_pos)
-        ax_c.set_xticklabels(peaks_df2["peak_label"].tolist(), fontsize=8, rotation=45, ha="right")
+        ax_c.set_xticklabels(peaks_df2["peak_label"].tolist(), fontsize=8, rotation=0, ha="center")
         for i, v in enumerate(clr_vals2):
             ax_c.text(i, v + (0.01 if v >= 0 else -0.02),
                       f"{v:+.3f}", ha="center", fontsize=8, color="#333")
@@ -351,7 +351,7 @@ with tab_proc:
         ax_p.set_facecolor(BG_COL)
         ax_p.bar(x_pos, pcts2, color=REF_COL, alpha=0.85)
         ax_p.set_xticks(x_pos)
-        ax_p.set_xticklabels(peaks_df2["peak_label"].tolist(), fontsize=8, rotation=45, ha="right")
+        ax_p.set_xticklabels(peaks_df2["peak_label"].tolist(), fontsize=8, rotation=0, ha="center")
         for i, v in enumerate(pcts2):
             ax_p.text(i, v + max(pcts2) * 0.01,
                       f"{v:.1f}%", ha="center", fontsize=8, color="#333")
@@ -667,7 +667,7 @@ with tab_cmp:
         ax_pct.bar(x + offsets[1 + j], it["pcts_mean"], bw, color=it["color"], alpha=0.85,
                    label=it["name"], yerr=it["pcts_err"], error_kw=err_kw)
     ax_pct.set_xticks(x)
-    ax_pct.set_xticklabels(all_labels, fontsize=8, rotation=45, ha="right")
+    ax_pct.set_xticklabels(all_labels, fontsize=8, rotation=0, ha="center")
     ax_pct.set_ylabel("% Peak Area", fontsize=9)
     ax_pct.legend(fontsize=8, framealpha=0.7)
     ax_pct.spines["top"].set_visible(False)
@@ -689,7 +689,7 @@ with tab_cmp:
                    label=it["name"], yerr=it["clr_err"], error_kw=err_kw)
     ax_clr.axhline(0, color="#333", lw=1.2)
     ax_clr.set_xticks(x)
-    ax_clr.set_xticklabels(all_labels, fontsize=8, rotation=45, ha="right")
+    ax_clr.set_xticklabels(all_labels, fontsize=8, rotation=0, ha="center")
     ax_clr.set_ylabel("CLR value", fontsize=9)
     ax_clr.legend(fontsize=8, framealpha=0.7)
     ax_clr.spines["top"].set_visible(False)
