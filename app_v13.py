@@ -332,11 +332,13 @@ with tab_proc:
         bar_colors = [OK_COL if v >= 0 else HI_COL for v in clr_vals2]
         x_pos = list(range(n_bars))
         ax_c.bar(x_pos, clr_vals2, color=bar_colors, alpha=0.85)
+        ax_c.axhline(0, color="#333", lw=1.2)
         ax_c.set_xticks(x_pos)
         ax_c.set_xticklabels(peaks_df2["peak_label"].tolist(), fontsize=7, rotation=0, ha="center")
         for i, v in enumerate(clr_vals2):
-            ax_c.text(i, v + (0.01 if v >= 0 else -0.02),
-                      f"{v:.3f}", ha="center", fontsize=8, color="#333")
+            v_clean = 0.0 if abs(v) < 1e-9 else v
+            ax_c.text(i, v_clean + (0.01 if v_clean >= 0 else -0.02),
+                      f"{v_clean:.3f}", ha="center", fontsize=8, color="#333")
         ax_c.set_ylabel("CLR value", fontsize=9)
         ax_c.spines["top"].set_visible(False)
         ax_c.spines["right"].set_visible(False)
