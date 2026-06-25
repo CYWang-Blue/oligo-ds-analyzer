@@ -334,7 +334,7 @@ with tab_proc:
         ax_c.bar(x_pos, clr_vals2, color=bar_colors, alpha=0.85)
         ax_c.axhline(0, color="#333", lw=1.2)
         ax_c.set_xticks(x_pos)
-        ax_c.set_xticklabels(peaks_df2["peak_label"].tolist(), fontsize=8, rotation=45, ha="right")
+        ax_c.set_xticklabels(peaks_df2["peak_label"].tolist(), fontsize=7, rotation=0, ha="center")
         for i, v in enumerate(clr_vals2):
             ax_c.text(i, v + (0.01 if v >= 0 else -0.02),
                       f"{v:+.3f}", ha="center", fontsize=8, color="#333")
