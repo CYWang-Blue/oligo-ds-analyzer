@@ -89,7 +89,9 @@ def clr_calc(pcts):
     if np.any(arr <= 0):
         return None, None
     gm = np.exp(np.mean(np.log(arr)))
-    return np.log(arr / gm), gm
+    clr = np.log(arr / gm)
+    clr[np.abs(clr) < 1e-9] = 0.0
+    return clr, gm
 
 def euclidean_distance(clr_a, clr_b):
     delta  = np.array(clr_b) - np.array(clr_a)
